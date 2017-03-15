@@ -5,6 +5,8 @@ import {WegService} from './../services/weg.service';
 
 import {AngularFire} from 'angularfire2';
 
+import { LocalStorageService } from 'angular-2-local-storage';
+
 @Component({
   selector: 'app-billing-component',
   templateUrl: './billing-component.component.html',
@@ -13,10 +15,13 @@ import {AngularFire} from 'angularfire2';
 export class BillingComponentComponent implements OnInit {
 title='Billing';
 weg:Weg[];
+userID:any;
 
-  constructor(private wegService:WegService,public af:AngularFire) { }
+  constructor(private wegService:WegService,public af:AngularFire,private localStorageService: LocalStorageService) { }
 
   ngOnInit() {
+  this.userID=this.getUserID('user-key');
+  this.checkBrowser();
   this.getWeg();
   }
 
@@ -29,5 +34,19 @@ weg:Weg[];
         this.af.auth.logout();
         console.log('Logout succ..');
 }
+
+checkBrowser()
+{
+  if(this.localStorageService.isSupported) {
+  console.log('yes i support Local storage');
+    //...
+  }
+}
+
+getUserID(key) 
+      {
+          console.log('User ID='+this.localStorageService.get(key));
+          return this.localStorageService.get(key);
+      }
 
 }

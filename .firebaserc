@@ -1,6 +1,5 @@
 {
   "projects": {
-    "default": "td-main",
-    "staging": "td-demo-df34d"
+    "default": "td-demo-df34d"
   }
 }

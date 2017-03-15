@@ -175,6 +175,19 @@ md-toolbar{
     padding: 15px;
 }
 
+.bottom-btn{
+
+    background-color: white;
+    color:#000000;
+    margin-left: 10PX;
+    height: 48px;
+    font-family: "Roboto-Medium";
+    font-size: 14px;
+
+   
+    
+}
+
 
 
 
